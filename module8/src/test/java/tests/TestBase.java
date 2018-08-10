@@ -20,6 +20,8 @@ public class TestBase {
 	private static final String MAILRU_LOGIN_SECOND_ACCOUNT = "vra_atmmodule6";
 	private static final String MAILRU_PASSWORD_SECOND_ACCOUNT = "123456789_Vra";
 	private static final String MAILRU_URL = "https://mail.ru/";
+	static final String EXPECTED_FIRST_ACCOUNT = "vra_atmmodule5@mail.ru"; 
+	static final String EXPECTED_SECOND_ACCOUNT = "vra_atmmodule6@mail.ru"; 
 	
 	protected WebDriver driver;
 	protected EmailService emailService = new EmailService();

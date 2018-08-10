@@ -31,7 +31,7 @@ public class AccountPage extends BasePage {
 	@FindBy(xpath = "//*[contains(@class,'ico_folder_drafts')]")
 	protected WebElement mailDraftMenuLink;
 
-	public static By mailSentTitle = By
+	public By mailSentTitle = By
 			.cssSelector("[class='message-sent__title']");
 
 	public CreateEmailPage clickMailCreationBtn() {

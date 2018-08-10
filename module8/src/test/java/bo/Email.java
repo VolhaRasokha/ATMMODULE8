@@ -2,40 +2,26 @@ package bo;
 
 public class Email {
 	
-	private String mailToAdress;
+	private String recipient;
 	private String subject;
 	private String textBody;
 	
-	public Email(){
-		this.setMailToAdress(mailToAdress);
-		this.setSubject(subject);
-		this.setTextBody(textBody);
+	public Email(String recipient, String subject, String textBody){
+		this.recipient = recipient;
+		this.subject = subject;
+		this.textBody = textBody;
 	}
 
-	public String getMailToAdress() {
-		return mailToAdress;
-	}
-
-	public void setMailToAdress(String mailToAdress) {
-		this.mailToAdress = mailToAdress;
+	public String getRecipient() {
+		return recipient;
 	}
 
 	public String getSubject() {
 		return subject;
 	}
 
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
-
 	public String getTextBody() {
 		return textBody;
 	}
-
-	public void setTextBody(String textBody) {
-		this.textBody = textBody;
-	}
-	
-
 
 }

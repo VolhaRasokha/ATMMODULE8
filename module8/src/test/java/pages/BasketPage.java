@@ -18,7 +18,7 @@ public class BasketPage extends AccountPage {
 	@FindBy(xpath = "//a[contains(@href,'https://e.mail.ru/thread/')]")
 	private List <WebElement> mailsInBasket;
 	
-	public BasketPage dragNDropMailFromDraftToBasket(int index){
+	public BasketPage dragNDropMailFromBasketToDraft(int index){
 		WebElement element = mailsInBasket.get(index);
 		Highlighter.highlightElement(element);
 		WebElement target = mailDraftMenuLink;

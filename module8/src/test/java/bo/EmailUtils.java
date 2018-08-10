@@ -7,10 +7,7 @@ public class EmailUtils {
 	private static final String TEXT_BODY = "TestTextBody" + currentKey;
 	
 	public static Email getDefaultEmail() {
-		Email email= new Email ();
-		email.setMailToAdress(MAIL_TO_ADDRESS);
-		email.setSubject(SUBJECT);
-		email.setTextBody(TEXT_BODY);
+		Email email= new Email (MAIL_TO_ADDRESS, SUBJECT, TEXT_BODY);
 		return email;
 	}
 

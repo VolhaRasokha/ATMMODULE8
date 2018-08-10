@@ -2,11 +2,8 @@ package pages;
 
 import java.util.List;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class IncomingPage extends BasePage {
@@ -34,31 +31,4 @@ public class IncomingPage extends BasePage {
 		deleteBtn.click();
 		return new IncomingPage(driver);
 	}
-
-	// Delete mail via context menu and Javascript Executor
-	public IncomingPage deleteMailByActionsJS(int index) {
-		WebElement mail = incomingMails.get(index);
-
-		((JavascriptExecutor) driver).executeScript(
-				"arguments[0].style.backgroundColor = 'yellow'", mail);
-		new Actions(driver).contextClick(mail).build().perform();
-		((JavascriptExecutor) driver).executeScript("arguments[0].click();",
-				deleteBtn);
-		waitForElementVisible(mail);
-		return new IncomingPage(driver);
-	}
-
-	public IncomingPage sendMailtoArchiveByJS(int index) {
-		WebElement mail = incomingMails.get(index);
-
-		((JavascriptExecutor) driver).executeScript(
-				"arguments[0].style.backgroundColor = 'yellow'", mail);
-		new Actions(driver)
-				.contextClick(mail)
-				.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN,
-						Keys.ENTER).build().perform();
-
-		return new IncomingPage(driver);
-	}
-
 }

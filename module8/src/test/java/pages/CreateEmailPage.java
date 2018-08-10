@@ -1,16 +1,12 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import bo.Email;
 import utils.Highlighter;
 
 public class CreateEmailPage extends BasePage{
-	private static final String SEARCH_ACTUAL_MAIL_BODY_LOCATOR = "//*[text()= '%s']";
 	
 	public CreateEmailPage(WebDriver driver) {
 		super(driver);
@@ -83,29 +79,4 @@ public class CreateEmailPage extends BasePage{
 		sendBtn.click();
 		return new AccountPage(driver);
 	}
-	
-	public String getMailToAddress(){
-		return actualMailToAddress.getAttribute("value");
-	}
-	
-	public boolean isMailBodyEnable(String textBody){
-		return driver.findElement(By.xpath(String.format(SEARCH_ACTUAL_MAIL_BODY_LOCATOR, textBody))).isEnabled();
-	}
-	
-	public CreateEmailPage fillMailByJS(String valueAddress){
-		new Actions(driver).sendKeys(mailToAddress, valueAddress).build().perform();
-		new Actions(driver).sendKeys(mailSubject, "test"+ System.nanoTime()).build().perform();
-		
-		driver.switchTo().frame(mailBody);
-		new Actions(driver).sendKeys(textBody, "to test actions").build().perform();
-		driver.switchTo().defaultContent();		
-		return new CreateEmailPage(driver);
-	}
-
-	public AccountPage send(Email email) {
-		waitForElementVisible(mailToAddress);
-		sendBtn.click();
-		return new AccountPage(driver);
-	}
-	
 }

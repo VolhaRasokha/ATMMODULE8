@@ -29,8 +29,8 @@ public class BasePage {
 		return !driver.findElements(locator).isEmpty();
 	}
 
-	public boolean isEmailPresentOnPage(String by_subject) {
-		return isElementPresent(By.xpath("//*[text()='" + by_subject + "']"));
+	public boolean isTextPresentOnPage(String text) {
+		return isElementPresent(By.xpath("//*[text()='" + text + "']"));
 	}
 
 	public void refresh() {
